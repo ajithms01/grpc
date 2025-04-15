@@ -55,8 +55,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  id:
-                    type: string
                   dept_name:
                     type: string
                   location:
@@ -90,8 +88,7 @@ paths:
                     type: string
                   dept_name:
                     type: string
-                  location:
-                    type: string
+
         '404':
           description: Department not found
           content:
