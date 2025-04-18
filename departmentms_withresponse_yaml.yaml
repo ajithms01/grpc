@@ -32,7 +32,6 @@ paths:
                       type: string
                     location:
                       type: string
-
     post:
       summary: Create a new department
       operationId: createDepartment
@@ -61,7 +60,6 @@ paths:
                     type: string
                   location:
                     type: string
-
   /department/{id}:
     get:
       summary: Get a department by ID
@@ -92,7 +90,6 @@ paths:
                     type: string
                   location:
                     type: string
-
     put:
       summary: Update a department by ID
       operationId: updateDepartment
@@ -127,3 +124,15 @@ paths:
                     type: string
                   location:
                     type: string
+    delete:
+      summary: Delete a department by ID
+      operationId: deleteDepartment
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Department deleted
