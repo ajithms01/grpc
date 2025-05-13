@@ -21,7 +21,7 @@ paths:
                   type: object
                   properties:
                     id:
-                      type: string
+                      type: integer
                     name:
                       type: string
                     location:
@@ -49,7 +49,7 @@ paths:
                 type: object
                 properties:
                   id:
-                    type: string
+                    type: integer
                   name:
                     type: string
                   location:
@@ -64,7 +64,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            type: integer
       responses:
         '200':
           description: Department details
@@ -74,7 +74,7 @@ paths:
                 type: object
                 properties:
                   id:
-                    type: string
+                    type: integer
                   name:
                     type: string
                   location:
@@ -87,7 +87,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            type: integer
       requestBody:
         required: true
         content:
@@ -108,7 +108,7 @@ paths:
                 type: object
                 properties:
                   id:
-                    type: string
+                    type: integer
                   name:
                     type: string
                   location:
@@ -121,7 +121,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            type: integer
       responses:
         '204':
           description: Department deleted
@@ -141,13 +141,13 @@ paths:
                   type: object
                   properties:
                     id:
-                      type: string
+                      type: integer
                     firstName:
                       type: string
                     lastName:
                       type: string
                     departmentId:
-                      type: string
+                      type: integer
     post:
       summary: Create a new employee
       operationId: createEmployee
@@ -163,7 +163,7 @@ paths:
                 lastName:
                   type: string
                 departmentId:
-                  type: string
+                  type: integer
       responses:
         '201':
           description: Employee created
@@ -173,13 +173,13 @@ paths:
                 type: object
                 properties:
                   id:
-                    type: string
+                    type: integer
                   firstName:
                     type: string
                   lastName:
                     type: string
                   departmentId:
-                    type: string
+                    type: integer
 
   /employee/{id}:
     get:
@@ -190,7 +190,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            type: integer
       responses:
         '200':
           description: Employee details
@@ -200,13 +200,13 @@ paths:
                 type: object
                 properties:
                   id:
-                    type: string
+                    type: integer
                   firstName:
                     type: string
                   lastName:
                     type: string
                   departmentId:
-                    type: string
+                    type: integer
     put:
       summary: Update an employee by ID
       operationId: updateEmployee
@@ -215,7 +215,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            type: integer
       requestBody:
         required: true
         content:
@@ -228,7 +228,7 @@ paths:
                 lastName:
                   type: string
                 departmentId:
-                  type: string
+                  type: integer
       responses:
         '200':
           description: Employee updated
@@ -238,13 +238,13 @@ paths:
                 type: object
                 properties:
                   id:
-                    type: string
+                    type: integer
                   firstName:
                     type: string
                   lastName:
                     type: string
                   departmentId:
-                    type: string
+                    type: integer
     delete:
       summary: Delete an employee by ID
       operationId: deleteEmployee
@@ -253,7 +253,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            type: integer
       responses:
         '204':
           description: Employee deleted
@@ -273,7 +273,7 @@ paths:
                   type: object
                   properties:
                     id:
-                      type: string
+                      type: integer
                     title:
                       type: string
                     budget:
@@ -301,7 +301,7 @@ paths:
                 type: object
                 properties:
                   id:
-                    type: string
+                    type: integer
                   title:
                     type: string
                   budget:
@@ -316,7 +316,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            type: integer
       responses:
         '200':
           description: Project details
@@ -326,7 +326,7 @@ paths:
                 type: object
                 properties:
                   id:
-                    type: string
+                    type: integer
                   title:
                     type: string
                   budget:
@@ -339,7 +339,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            type: integer
       requestBody:
         required: true
         content:
@@ -360,7 +360,7 @@ paths:
                 type: object
                 properties:
                   id:
-                    type: string
+                    type: integer
                   title:
                     type: string
                   budget:
@@ -373,7 +373,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            type: integer
       responses:
         '204':
           description: Project deleted
@@ -393,11 +393,11 @@ paths:
                   type: object
                   properties:
                     id:
-                      type: string
+                      type: integer
                     employeeId:
-                      type: string
+                      type: integer
                     projectId:
-                      type: string
+                      type: integer
     post:
       summary: Create a new employee-project relationship
       operationId: createEmployeeProject
@@ -409,9 +409,9 @@ paths:
               type: object
               properties:
                 employeeId:
-                  type: string
+                  type: integer
                 projectId:
-                  type: string
+                  type: integer
       responses:
         '201':
           description: Employee-project relationship created
@@ -421,11 +421,11 @@ paths:
                 type: object
                 properties:
                   id:
-                    type: string
+                    type: integer
                   employeeId:
-                    type: string
+                    type: integer
                   projectId:
-                    type: string
+                    type: integer
 
   /employee_project/{id}:
     get:
@@ -436,7 +436,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            type: integer
       responses:
         '200':
           description: Employee-project relationship details
@@ -446,11 +446,11 @@ paths:
                 type: object
                 properties:
                   id:
-                    type: string
+                    type: integer
                   employeeId:
-                    type: string
+                    type: integer
                   projectId:
-                    type: string
+                    type: integer
     put:
       summary: Update an employee-project relationship by ID
       operationId: updateEmployeeProject
@@ -459,7 +459,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            type: integer
       requestBody:
         required: true
         content:
@@ -468,9 +468,9 @@ paths:
               type: object
               properties:
                 employeeId:
-                  type: string
+                  type: integer
                 projectId:
-                  type: string
+                  type: integer
       responses:
         '200':
           description: Employee-project relationship updated
@@ -480,11 +480,11 @@ paths:
                 type: object
                 properties:
                   id:
-                    type: string
+                    type: integer
                   employeeId:
-                    type: string
+                    type: integer
                   projectId:
-                    type: string
+                    type: integer
     delete:
       summary: Delete an employee-project relationship by ID
       operationId: deleteEmployeeProject
@@ -493,7 +493,7 @@ paths:
           in: path
           required: true
           schema:
-            type: string
+            type: integer
       responses:
         '204':
           description: Employee-project relationship deleted
