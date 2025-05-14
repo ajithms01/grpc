@@ -1,0 +1,379 @@
+openapi: 3.0.1
+info:
+  title: Employee Management API
+  description: API for managing employees, departments, projects, and their relationships.
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /department:
+    get:
+      summary: Get all departments
+      operationId: getAllDepartments
+      responses:
+        '200':
+          description: A list of departments
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    location:
+                      type: string
+    post:
+      summary: Create a new department
+      operationId: createDepartment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                location:
+                  type: string
+      responses:
+        '201':
+          description: Department created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  location:
+                    type: string
+
+  /department/{id}:
+    get:
+      summary: Get a department by ID
+      operationId: getDepartmentById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Department details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  location:
+                    type: string
+    put:
+      summary: Update a department by ID
+      operationId: updateDepartment
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                location:
+                  type: string
+      responses:
+        '200':
+          description: Department updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  location:
+                    type: string
+    delete:
+      summary: Delete a department by ID
+      operationId: deleteDepartment
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Department deleted
+
+  /employee:
+    get:
+      summary: Get all employees
+      operationId: getAllEmployees
+      responses:
+        '200':
+          description: A list of employees
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    firstName:
+                      type: string
+                    lastName:
+                      type: string
+                    departmentId:
+                      type: integer
+    post:
+      summary: Create a new employee
+      operationId: createEmployee
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                departmentId:
+                  type: integer
+      responses:
+        '201':
+          description: Employee created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  firstName:
+                    type: string
+                  lastName:
+                    type: string
+                  departmentId:
+                    type: integer
+
+  /employee/{id}:
+    get:
+      summary: Get an employee by ID
+      operationId: getEmployeeById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Employee details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  firstName:
+                    type: string
+                  lastName:
+                    type: string
+                  departmentId:
+                    type: integer
+    put:
+      summary: Update an employee by ID
+      operationId: updateEmployee
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                departmentId:
+                  type: integer
+      responses:
+        '200':
+          description: Employee updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  firstName:
+                    type: string
+                  lastName:
+                    type: string
+                  departmentId:
+                    type: integer
+    delete:
+      summary: Delete an employee by ID
+      operationId: deleteEmployee
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Employee deleted
+
+  /project:
+    get:
+      summary: Get all projects
+      operationId: getAllProjects
+      responses:
+        '200':
+          description: A list of projects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    title:
+                      type: string
+                    budget:
+                      type: number
+    post:
+      summary: Create a new project
+      operationId: createProject
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                budget:
+                  type: number
+      responses:
+        '201':
+          description: Project created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  budget:
+                    type: number
+
+  /project/{id}:
+    get:
+      summary: Get a project by ID
+      operationId: getProjectById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Project details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  budget:
+                    type: number
+    put:
+      summary: Update a project by ID
+      operationId: updateProject
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                budget:
+                  type: number
+      responses:
+        '200':
+          description: Project updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  budget:
+                    type: number
+    delete:
+      summary: Delete a project by ID
+      operationId: deleteProject
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Project deleted
