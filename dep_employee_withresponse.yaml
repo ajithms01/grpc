@@ -378,7 +378,7 @@ paths:
         '204':
           description: Project deleted
 
-  /employee_project:
+  /employeeproject:
     get:
       summary: Get all employee-project relationships
       operationId: getAllEmployeeProjects
@@ -427,7 +427,7 @@ paths:
                   projectId:
                     type: integer
 
-  /employee_project/{id}:
+  /employeeproject/{id}:
     get:
       summary: Get an employee-project relationship by ID
       operationId: getEmployeeProjectById
